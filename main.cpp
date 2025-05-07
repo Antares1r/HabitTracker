@@ -51,11 +51,16 @@ void printMenu() {
 	menuEntrys = habits;
 	extra = { "Add", "Edit", "Remove", "Exit" };
 	menuEntrys.insert(menuEntrys.end(), extra.begin(), extra.end());
+	if (cmi > 0) {
+		cmi--;
+	} else if (cmi < 0) {
+		cmi = 0;
+	}
 	// List Habits
 	for (size_t i = 0; i < menuEntrys.size(); ++i) {
 		string entry = menuEntrys[i];
 		if (i == cmi) {
-			cout << "\033[47m\033[30m " << entry << "\033[0m" << endl;
+			cout << "\033[47m\033[30m   " << entry << "\033[0m" << endl;
 		} else {
 			cout << entry << endl;
 		}
